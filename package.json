@@ -1,0 +1,16 @@
+{
+  "name": "eat-api-react",
+  "version": "1.0.0",
+  "description": "a next js app that uses react and other stuff to consume an api and display the information on a page",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "emil-mircea",
+  "license": "ISC",
+  "dependencies": {
+    "next": "latest"
+  }
+}
