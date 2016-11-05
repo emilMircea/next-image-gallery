@@ -1,7 +1,7 @@
 {
-  "name": "eat-api-react",
+  "name": "photo-grid-react",
   "version": "1.0.0",
-  "description": "a next js app that uses react and other stuff to consume an api and display the information on a page",
+  "description": "a next js app that uses react to display a grid of images and enlarge each on click",
   "main": "index.js",
   "scripts": {
     "dev": "next",
