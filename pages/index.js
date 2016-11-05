@@ -6,7 +6,7 @@ export default class extends React.Component {
   static getInitialProps () {
     return {
       // dummy data
-      photos: new Array(15).fill(0).map( (v,k) => k + 1 )
+      photos: new Array(15).fill(0).map((v,k)=>k+1)
     }
   }
 
@@ -19,16 +19,18 @@ export default class extends React.Component {
     document.addEventListener('keydown', this.onKeyDown)
   }
 
-  componentWillMount () {
+  componentWillUnmount () {
     document.removeEventListener('keydown', this.onKeyDown)
   }
 
   onKeyDown (e) {
+    // if no url query id then do nothing
     if (!this.props.url.query.id) return
+    // keyCode 27 is escape key
     if (27 === e.keyCode) {
       this.props.url.back()
     }
-  } // end onKeyDown
+  }
 
   dismissModal () {
     this.props.url.back()
@@ -36,6 +38,7 @@ export default class extends React.Component {
 
   showPhoto (e, id) {
     e.preventDefault()
+    // changes url to add the id of the clicked photo
     this.props.url.push('/photo?id=' + id)
   }
 
@@ -46,15 +49,16 @@ export default class extends React.Component {
           this.props.url.query.id &&
             <Modal
               id={this.props.url.query.id}
-              onDismiss= { () => this.dismissModal() }
+              onDismiss={ () => this.dismissModal() }
             />
         }
         {
           this.props.photos.map((id) => (
             <div key={id} className={style(styles.photo)}>
-              <a className={style(styles.photoLink)}
-              href={'/photo?id=' + id}
-              onClick={(e) => this.showPhoto(e, id)}>
+              <a
+                className={style(styles.photoLink)}
+                href={'/photo?id=' + id}
+                onClick={(e) => this.showPhoto(e, id) }>
                 {id}
               </a>
             </div>
@@ -63,17 +67,18 @@ export default class extends React.Component {
       </div>
     )
   }
-
-} // end component
+}
 
 const styles = {
   list: {
     padding: '50px',
     textAlign: 'center'
   },
+
   photo: {
     display: 'inline-block'
   },
+
   photoLink: {
     color: '#333',
     verticalAlign: 'middle',
@@ -89,3 +94,4 @@ const styles = {
       borderColor: 'blue'
     }
   }
+}

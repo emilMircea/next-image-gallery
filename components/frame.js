@@ -2,20 +2,20 @@ import React from 'react'
 import Link from 'next/link'
 import { style } from 'next/css'
 
-export default ( { id } ) => (
-  <div className={style(styles.photoWrapper)} >
-    <div className={style(styles.image)} >
+export default ({ id }) => (
+  <div className={style(styles.photoWrapper)}>
+    <div className={style(styles.image)}>
       {id}
     </div>
-  </div>
 
-  <div className={style(styles.sidebar)}>
-    <ul className={style(styles.sidebarList)}>
-      <li>
-        <Link href="/profile?id=emil" > @emil </Link>
-        - Photo description
-      </li>
-    </ul>
+    <div className={style(styles.sidebar)}>
+      <ul className={style(styles.sidebarList)}>
+        <li>
+          <Link href="/profile?id=emil">@emil</Link>
+          - Photo description!
+        </li>
+      </ul>
+    </div>
   </div>
 )
 
